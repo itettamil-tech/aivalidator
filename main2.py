@@ -1,9 +1,12 @@
 from google import genai
 import streamlit as st
+import os
 
 st.title("AI Business Validator")
 
-prime = genai.Client(api_key = "AIzaSyAW4kVv2JydveDoxcNb9RQ6D8lkgn3dvIE")
+key = os.getenv("GOOGLE_API_KEY")
+
+prime = genai.Client(api_key = key)
 
 audience = st.text_input("Who are your audience")
 age_group = st.text_input("which is your age group")
